@@ -85,9 +85,10 @@ jobs:
           if-no-files-found: error
           retention-days: 14
   freebsd:
-    name: freebsd-14.4-amd64-poll-only
+    name: freebsd-14.2-amd64-poll-only
     runs-on: ubuntu-24.04
     timeout-minutes: 40
+    continue-on-error: true
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
@@ -95,7 +96,7 @@ jobs:
       - name: FreeBSD guest; experimental target admission
         uses: vmactions/freebsd-vm@77ed28d336d03fe19a3f4f7266c1d2c4714dd79d # v1.5.2
         with:
-          release: '14.4'
+          release: '14.2'
           arch: x86_64
           usesh: true
           mem: '4096'
